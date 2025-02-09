@@ -1,5 +1,7 @@
 ---
-
+// Server Only 
+const name = 'Brian Exequiel';
+const title = 'Astro Basics';
 ---
 
 <html lang="en">
@@ -8,9 +10,25 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Hola Mundo!</title>
+		<title>{title}</title>
 	</head>
 	<body>
-		<h1>Brian Exequiel</h1>
+		<h1>{name}</h1>
+		<p>Momento actual: {new Date().toLocaleTimeString()}</p>
+		<footer class="footer">
+		</footer>
+		<script>
+			let currentYear = new Date().getFullYear();
+			const footer = document.querySelector('footer');
+			if (footer !== null && footer !== undefined) {
+				if (footer) {
+					footer.innerText = ` ${currentYear} ${name}`;
+				} else {
+					console.warn("Footer element not found");
+				}
+			} else {
+				console.warn("Footer element not found");
+			}
+		</script>
 	</body>
 </html>
