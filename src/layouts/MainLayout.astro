@@ -1,12 +1,10 @@
 ---
 import Navbar from "../components/Navbar.astro";
-
+import '../styles/global.css';
 interface Props {
     title: string;
-    age?: number; // ? = optional
-    isActive?: boolean; // ? = optional
 }
-const { title, age, isActive } = Astro.props;
+const { title } = Astro.props;
 ---
 
 
