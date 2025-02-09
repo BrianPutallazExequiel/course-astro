@@ -1,46 +1,37 @@
 ---
-import Navbar from "../components/Navbar.astro";
-// Server Only 
-const name = 'Brian Exequiel';
-const title = 'Astro Basics';
+import MainLayout from "../layouts/MainLayout.astro";
+// Server Only
+const name = "Brian Exequiel";
+const title = "Astro Basics";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<h1>{name}</h1>
-		<Navbar />
-		<p>Momento actual: {new Date().toLocaleTimeString()}</p>
-		<p id="current-time"></p>
-		<footer class="footer">
-		</footer>
-		<script>
-			let currentYear = new Date().getFullYear();
-			const footer = document.querySelector('footer');
-			if (footer !== null && footer !== undefined) {
-				if (footer) {
-					footer.innerText = ` ${currentYear}`;
-				} else {
-					console.warn("Footer element not found");
-				}
+<MainLayout title= "Home Page">
+	<h1>{name}</h1>
+	<p>Momento actual: {new Date().toLocaleTimeString()}</p>
+	<p id="current-time"></p>
+	<footer class="footer"></footer>
+	<script>
+		let currentYear = new Date().getFullYear();
+		const footer = document.querySelector("footer");
+		if (footer !== null && footer !== undefined) {
+			if (footer) {
+				footer.innerText = ` ${currentYear}`;
 			} else {
 				console.warn("Footer element not found");
 			}
-			let currentTime = new Date().toLocaleTimeString();
-			const currentTimeElement = document.querySelector('#current-time') as HTMLElement | null;
-			if (currentTimeElement !== null) {
-				currentTimeElement.innerText = `El momento actual real es: ${currentTime}`;
-			} else {
-				console.warn("Element with ID 'current-time' not found.");
-			}
-			console.log(currentTime);
-			
-		</script>
-	</body>
-</html>
+		} else {
+			console.warn("Footer element not found");
+		}
+		let currentTime = new Date().toLocaleTimeString();
+		const currentTimeElement = document.querySelector(
+			"#current-time",
+		) as HTMLElement | null;
+		if (currentTimeElement !== null) {
+			currentTimeElement.innerText = `El momento actual real es: ${currentTime}`;
+		} else {
+			console.warn("Element with ID 'current-time' not found.");
+		}
+		console.log(currentTime);
+	</script>
+</MainLayout>
+
