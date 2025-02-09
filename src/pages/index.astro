@@ -15,6 +15,7 @@ const title = 'Astro Basics';
 	<body>
 		<h1>{name}</h1>
 		<p>Momento actual: {new Date().toLocaleTimeString()}</p>
+		<p id="current-time"></p>
 		<footer class="footer">
 		</footer>
 		<script>
@@ -22,13 +23,22 @@ const title = 'Astro Basics';
 			const footer = document.querySelector('footer');
 			if (footer !== null && footer !== undefined) {
 				if (footer) {
-					footer.innerText = ` ${currentYear} ${name}`;
+					footer.innerText = ` ${currentYear}`;
 				} else {
 					console.warn("Footer element not found");
 				}
 			} else {
 				console.warn("Footer element not found");
 			}
+			let currentTime = new Date().toLocaleTimeString();
+			const currentTimeElement = document.querySelector('#current-time') as HTMLElement | null;
+			if (currentTimeElement !== null) {
+				currentTimeElement.innerText = `El momento actual real es: ${currentTime}`;
+			} else {
+				console.warn("Element with ID 'current-time' not found.");
+			}
+			console.log(currentTime);
+			
 		</script>
 	</body>
 </html>
