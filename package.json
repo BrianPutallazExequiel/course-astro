@@ -2,6 +2,7 @@
   "name": "01-foundation",
   "type": "module",
   "version": "0.0.1",
+  "packageManager": "pnpm@6.14.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
